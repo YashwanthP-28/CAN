@@ -80,7 +80,7 @@ This project provides a complete interactive learning experience for understandi
 git clone https://github.com/YashwanthP-28/CAN-Protocol-Learning-System.git
 
 # Navigate to the directory
-cd CAN-Protocol-Learning-System
+cd CAN
 
 # Run the interactive learning system
 python can_protocol_complete.py
