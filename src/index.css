@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #010409;
+  color: #c9d1d9;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .can-border {
+    @apply border border-can-border;
+  }
+
+  .can-card {
+    @apply bg-can-card border border-can-border rounded-lg;
+  }
+
+  .can-button {
+    @apply px-4 py-2 rounded font-medium transition-all duration-200;
+  }
+
+  .can-button-primary {
+    @apply bg-can-accent text-can-dark hover:bg-can-accentHover;
+  }
+
+  .can-button-secondary {
+    @apply bg-can-border text-can-text hover:bg-can-muted;
+  }
+
+  .can-button-danger {
+    @apply bg-can-error text-white hover:brightness-110;
+  }
+
+  .can-input {
+    @apply bg-can-dark border border-can-border rounded px-3 py-2 text-can-text
+           focus:outline-none focus:border-can-accent focus:ring-1 focus:ring-can-accent;
+  }
+
+  .can-select {
+    @apply bg-can-dark border border-can-border rounded px-3 py-2 text-can-text
+           focus:outline-none focus:border-can-accent cursor-pointer;
+  }
+
+  .can-label {
+    @apply block text-sm font-medium text-can-muted mb-1;
+  }
+
+  .bit-dominant {
+    @apply bg-can-dominant text-can-dark font-bold;
+  }
+
+  .bit-recessive {
+    @apply bg-can-recessive text-can-dark font-bold;
+  }
+
+  .bit-stuffed {
+    @apply bg-can-warning text-can-dark font-bold;
+  }
+
+  .node-active {
+    @apply border-l-2 border-l-can-success;
+  }
+
+  .node-passive {
+    @apply border-l-2 border-l-can-warning;
+  }
+
+  .node-bus-off {
+    @apply border-l-2 border-l-can-error;
+  }
+}
+
+/* Animation for oscilloscope trace */
+@keyframes oscilloscopeTrace {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.oscilloscope-line {
+  stroke-dasharray: 5, 5;
+  animation: oscilloscopeTrace 0.5s linear infinite;
+}
+
+/* Frame field highlighting */
+.frame-field {
+  @apply transition-all duration-150 cursor-pointer;
+}
+
+.frame-field:hover {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+}
+
+/* Tooltip styling */
+.tooltip {
+  @apply absolute z-50 px-2 py-1 text-xs rounded bg-can-dark border border-can-border
+         shadow-lg;
+}
+
+/* Status indicators */
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-dot-active {
+  @apply bg-can-success;
+  box-shadow: 0 0 8px #3fb950;
+}
+
+.status-dot-passive {
+  @apply bg-can-warning;
+  box-shadow: 0 0 8px #d29922;
+}
+
+.status-dot-off {
+  @apply bg-can-error;
+}
+
+/* Waveform colors */
+.waveform-can-h {
+  stroke: #58a6ff;
+  fill: none;
+  stroke-width: 2;
+}
+
+.waveform-can-l {
+  stroke: #f85149;
+  fill: none;
+  stroke-width: 2;
+}
+
+.waveform-diff {
+  stroke: #3fb950;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Table styling */
+.can-table {
+  @apply w-full text-sm;
+}
+
+.can-table th {
+  @apply text-left text-can-muted font-medium px-3 py-2 border-b border-can-border;
+}
+
+.can-table td {
+  @apply px-3 py-2 border-b border-can-border;
+}
+
+.can-table tr:hover td {
+  @apply bg-can-card;
+}
